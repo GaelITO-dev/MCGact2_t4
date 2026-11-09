@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Producto guardado</title>
+</head>
+<body>
+    <h1 th:text="${nombreProyecto}">Catalogo de productos</h1>
+    <h2>Producto recibido y guardado</h2>
+
+    <p>ID: <span th:text="${producto.id}"></span></p>
+    <p>Nombre: <span th:text="${producto.nombre}"></span></p>
+    <p>Precio: <span th:text="${producto.precio}"></span></p>
+    <p>Categoria: <span th:text="${producto.categoria}"></span></p>
+
+    <a th:href="@{/productos}">Volver a la lista</a>
+</body>
+</html>

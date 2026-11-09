@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+</head>
+<body>
+    <h1 th:text="${nombreProyecto}">Catalogo de productos</h1>
+    <h2>Lista de productos</h2>
+
+    <form th:action="@{/productos}" method="get">
+        <label for="categoria">Filtrar por categoria:</label>
+        <input id="categoria" type="text" name="categoria" th:value="${categoria}">
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <p><a th:href="@{/productos/nuevo}">Agregar producto</a></p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+                <th>Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="producto : ${productos}">
+                <td th:text="${producto.nombre}"></td>
+                <td th:text="${producto.precio}"></td>
+                <td th:text="${producto.categoria}"></td>
+                <td><a th:href="@{/productos/{id}(id=${producto.id})}">Ver</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
